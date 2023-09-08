@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -53,5 +54,23 @@ public class MainActivity extends AppCompatActivity {
         // Se desejar, você pode adicionar uma ação após salvar os dados.
         // Exemplo: exibir uma mensagem de sucesso.
         Toast.makeText(context, "Dados salvos com sucesso", Toast.LENGTH_SHORT).show();
+    }
+    public void carregar (View view){
+
+        Intent telaResultado = new Intent(getApplicationContext(), Resultado.class);
+        startActivity(telaResultado);
+
+         sharedPrefs  = getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
+         SharedPreferences.Editor editor = sharedPrefs.edit();
+         editor.putString("Nome: ", textnome.getText().toString());
+         editor.putString("Nota 1 : ", nota1.getText().toString());
+         editor.putString("Nota 2 : ", nota2.getText().toString());
+         editor.putString("Nota 3 : ", nota3.getText().toString());
+         editor.commit();
+
+        Toast.makeText(context, "Dados carregados com sucesso", Toast.LENGTH_SHORT).show();
+
+
+
     }
 }
