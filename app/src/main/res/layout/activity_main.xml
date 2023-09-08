@@ -42,14 +42,14 @@
         android:hint="Nota 1"
         android:inputType="numberDecimal"
         android:padding="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/note2"
+        app:layout_constraintBottom_toTopOf="@+id/nota2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textnome" />
 
     <EditText
-        android:id="@+id/note2"
+        android:id="@+id/nota2"
         android:layout_width="match_parent"
         android:layout_height="58dp"
         android:layout_marginStart="100dp"
@@ -81,7 +81,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/note2"
+        app:layout_constraintTop_toBottomOf="@+id/nota2"
         app:layout_constraintVertical_bias="0.008" />
 
     <Button

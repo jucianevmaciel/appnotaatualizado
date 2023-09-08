@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     public void salvar(View view) {
         textnome = findViewById(R.id.textnome);
         nota1 = findViewById(R.id.nota1);
-        nota2 = findViewById(R.id.note2);
+        nota2 = findViewById(R.id.nota2);
         nota3 = findViewById(R.id.nota3);
 
         String nome = textnome.getText().toString();
@@ -46,34 +46,34 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        // Salva os dados em SharedPreferences
         SharedPreferences.Editor editor = sharedPrefs.edit();
-        editor.putString(nome, note1 + "," + note2 + "," + note3);
+        editor.putString(nome + "_nota1", note1);
+        editor.putString(nome + "_nota2", note2);
+        editor.putString(nome + "_nota3", note3);
         editor.apply();
+
 
         // Se desejar, você pode adicionar uma ação após salvar os dados.
         // Exemplo: exibir uma mensagem de sucesso.
         Toast.makeText(context, "Dados salvos com sucesso", Toast.LENGTH_SHORT).show();
     }
-    public void carregar (View view){
-            sharedPrefs = getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
+    public void carregar(View view) {
+        sharedPrefs = getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
 
-            // Obtenha os valores de SharedPreferences
-            String nome = sharedPrefs.getString("Nome", "");
-            String nota1 = sharedPrefs.getString("Nota 1", "");
-            String nota2 = sharedPrefs.getString("Nota 2", "");
-            String nota3 = sharedPrefs.getString("Nota 3", "");
+        String nome = textnome.getText().toString();
+        String nota1 = sharedPrefs.getString(nome + "_nota1", "");
+        String nota2 = sharedPrefs.getString(nome + "_nota2", "");
+        String nota3 = sharedPrefs.getString(nome + "_nota3", "");
 
-            // Crie um Intent para abrir a tela "Resultado" e passe os dados como extras
-            Intent telaResultado = new Intent(getApplicationContext(), Resultado.class);
-            telaResultado.putExtra("Nome", nome);
-            telaResultado.putExtra("Nota 1", nota1);
-            telaResultado.putExtra("Nota 2", nota2);
-            telaResultado.putExtra("Nota 3", nota3);
-            startActivity(telaResultado);
+        // Crie um Intent para abrir a tela "Resultado" e passe os dados como extras
+        Intent telaResultado = new Intent(getApplicationContext(), Resultado.class);
+        telaResultado.putExtra("Nome", nome);
+        telaResultado.putExtra("Nota 1", nota1);
+        telaResultado.putExtra("Nota 2", nota2);
+        telaResultado.putExtra("Nota 3", nota3);
+        startActivity(telaResultado);
 
-            Toast.makeText(this, "Dados carregados com sucesso", Toast.LENGTH_SHORT).show();
-
-
+        Toast.makeText(this, "Dados carregados com sucesso", Toast.LENGTH_SHORT).show();
     }
+
 }
