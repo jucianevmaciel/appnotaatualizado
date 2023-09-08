@@ -56,20 +56,23 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(context, "Dados salvos com sucesso", Toast.LENGTH_SHORT).show();
     }
     public void carregar (View view){
+            sharedPrefs = getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
 
-        Intent telaResultado = new Intent(getApplicationContext(), Resultado.class);
-        startActivity(telaResultado);
+            // Obtenha os valores de SharedPreferences
+            String nome = sharedPrefs.getString("Nome", "");
+            String nota1 = sharedPrefs.getString("Nota 1", "");
+            String nota2 = sharedPrefs.getString("Nota 2", "");
+            String nota3 = sharedPrefs.getString("Nota 3", "");
 
-         sharedPrefs  = getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
-         SharedPreferences.Editor editor = sharedPrefs.edit();
-         editor.putString("Nome: ", textnome.getText().toString());
-         editor.putString("Nota 1 : ", nota1.getText().toString());
-         editor.putString("Nota 2 : ", nota2.getText().toString());
-         editor.putString("Nota 3 : ", nota3.getText().toString());
-         editor.commit();
+            // Crie um Intent para abrir a tela "Resultado" e passe os dados como extras
+            Intent telaResultado = new Intent(getApplicationContext(), Resultado.class);
+            telaResultado.putExtra("Nome", nome);
+            telaResultado.putExtra("Nota 1", nota1);
+            telaResultado.putExtra("Nota 2", nota2);
+            telaResultado.putExtra("Nota 3", nota3);
+            startActivity(telaResultado);
 
-        Toast.makeText(context, "Dados carregados com sucesso", Toast.LENGTH_SHORT).show();
-
+            Toast.makeText(this, "Dados carregados com sucesso", Toast.LENGTH_SHORT).show();
 
 
     }
