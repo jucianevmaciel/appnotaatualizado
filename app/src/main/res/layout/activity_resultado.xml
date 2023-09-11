@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/rose"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@color/rose"
     tools:context=".Resultado">
 
     <!-- Título da tela -->
@@ -14,21 +14,53 @@
         android:id="@+id/textViewTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Resultados das Pessoas"
-        android:textSize="24sp"
-        android:textStyle="bold"
         android:layout_gravity="center"
         android:layout_marginBottom="16dp"
-        android:gravity="center" />
+        android:gravity="center"
+        android:text="Resultados das Pessoas"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
-    <!-- ListView para exibir os dados das pessoas -->
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:divider="@android:color/darker_gray"
-        android:dividerHeight="1dp" />
+    <TextView
+        android:id="@+id/textNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="Nome: "
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textnota1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="N1: "
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textnota2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="N2: "
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textnota3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="N3: "
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
 
     <!-- Botão de voltar -->
 
@@ -50,6 +82,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.648" />
+
+
+
 </LinearLayout>
 
 

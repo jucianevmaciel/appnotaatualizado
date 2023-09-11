@@ -6,52 +6,37 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
-import android.widget.EditText;
 import android.widget.TextView;
 
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import java.util.ArrayList;
-
 public class Resultado extends AppCompatActivity {
 
+    private TextView textNome, textnota1, textnota2, textnota3;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_resultado);
+        ArrayList<String> pessoasCarregadas = getIntent().getStringArrayListExtra("Pessoas");
 
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_resultado);
+        // Recupere os dados da Intent
+        String nome = getIntent().getStringExtra("Nome");
+        String note1 = getIntent().getStringExtra("Nota 1");
+        String note2 = getIntent().getStringExtra("Nota 2");
+        String note3 = getIntent().getStringExtra("Nota 3");
 
-            ListView listView = findViewById(R.id.listView);
+        // Exiba os dados nos campos de texto ou faça o que desejar com eles
+         textNome = findViewById(R.id.textNome);
+         textnota1 = findViewById(R.id.textnota1);
+         textnota2 = findViewById(R.id.textnota2);
+         textnota3 = findViewById(R.id.textnota3);
 
-            // Obtenha os dados das intenções extras
-            ArrayList<String> nomes = getIntent().getStringArrayListExtra("Nomes");
-            ArrayList<String> notas1 = getIntent().getStringArrayListExtra("Notas1");
-            ArrayList<String> notas2 = getIntent().getStringArrayListExtra("Notas2");
-            ArrayList<String> notas3 = getIntent().getStringArrayListExtra("Notas3");
-
-            // Crie uma lista de strings para exibir os dados
-            ArrayList<String> dados = new ArrayList<>();
-
-            // Preencha a lista com os dados das pessoas
-            for (int i = 0; i < nomes.size(); i++) {
-                String nome = nomes.get(i);
-                String nota1 = notas1.get(i);
-                String nota2 = notas2.get(i);
-                String nota3 = notas3.get(i);
-
-                // Adicione os dados ao formato desejado na lista
-                dados.add("Nome: " + nome + "\nNota 1: " + nota1 + "\nNota 2: " + nota2 + "\nNota 3: " + nota3);
-            }
-
-            // Crie um adaptador para preencher o ListView com os dados
-            ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, dados);
-
-            // Configure o ListView para usar o adaptador
-            listView.setAdapter(adapter);
-        }
-
+         textNome.setText("Nome: " + nome);
+         textnota1.setText("Nota 1: " + note1);
+         textnota2.setText("Nota 2: " + note2);
+         textnota3.setText("Nota 3: " + note3);
+    }
     public  void voltar (View view){
         finish();
     }

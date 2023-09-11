@@ -9,12 +9,13 @@
     tools:context=".MainActivity"
     tools:visibility="visible">
 
+
     <EditText
         android:id="@+id/textnome"
         android:layout_width="match_parent"
         android:layout_height="58dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="200dp"
         android:layout_marginEnd="50dp"
         android:background="@color/blue"
         android:ems="10"
@@ -27,7 +28,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
-
 
     <EditText
         android:id="@+id/nota1"
@@ -82,28 +82,26 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nota2"
-        app:layout_constraintVertical_bias="0.008" />
+        app:layout_constraintVertical_bias="0.004" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnsalvar"
         android:layout_width="150dp"
         android:layout_height="48dp"
         android:layout_marginStart="35dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="120dp"
-        android:backgroundTint="@color/pink"
-        android:background="@color/white"
         android:onClick="salvar"
         android:text="salvar"
-        android:textSize="18dp"
         android:textColor="@color/black"
+        android:textSize="18dp"
         app:backgroundTint="@color/pink"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.424"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nota3"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.67" />
 
     <ImageView
         android:layout_width="150dp"
@@ -123,59 +121,18 @@
         android:id="@+id/btncarregar"
         android:layout_width="150dp"
         android:layout_height="48dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="36dp"
-        android:background="@color/pink"
-        android:backgroundTint="@color/pink"
+        android:layout_marginBottom="16dp"
         android:onClick="carregar"
         android:text="carregar"
-        android:textSize="18dp"
         android:textColor="@color/black"
+        android:textSize="18dp"
         app:backgroundTint="@color/pink"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btneditar"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.112" />
+        app:layout_constraintTop_toBottomOf="@+id/btnsalvar"
+        app:layout_constraintVertical_bias="0.105" />
 
-    <Button
-        android:id="@+id/btnremover"
-        android:layout_width="150dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="100dp"
-        android:background="@color/pink"
-        android:backgroundTint="@color/pink"
-        android:onClick="remover"
-        android:text="remover"
-        android:textSize="18dp"
-        android:textColor="@color/black"
-        app:backgroundTint="@color/pink"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.013"
-        app:layout_constraintStart_toEndOf="@+id/btncarregar"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.112" />
-
-    <Button
-        android:id="@+id/btneditar"
-        android:layout_width="150dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="30dp"
-        android:backgroundTint="@color/pink"
-        android:onClick="editar"
-        android:text="editar"
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        app:backgroundTint="@color/pink"
-        app:layout_constraintBottom_toTopOf="@+id/btnremover"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.644"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/nota3"
-        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
