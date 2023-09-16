@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-import com.example.myapplication.R;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,19 +17,14 @@ public class MainActivity extends AppCompatActivity {
     private EditText textnome, nota1, nota2, nota3;
     private Context context;
     private SharedPreferences sharedPrefs;
-    private int contadorPessoas = 0; // Contador para gerar chaves únicas
-
+    private int contadorPessoas = 0; // Contador para gerar chaves única
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = getApplicationContext();
         setContentView(R.layout.activity_main);
-        sharedPrefs = getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
-
-
-
-
+        sharedPrefs = getSharedPreferences("estudantes", Context.MODE_PRIVATE);
     }
 
     public void salvar(View view) {
@@ -74,26 +68,24 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(context, "Nenhum dado para carregar", Toast.LENGTH_SHORT).show();
             return;
         }
-
+        List<String> notassalvas = new ArrayList<>();
         // Recupere os dados da primeira pessoa (chave 1)
-        String chavePessoa = "pessoa_" + contadorPessoas;
+        for (int i=0; i<contadorPessoas; i++){
+        String chavePessoa = "pessoa_" + i;
         String nome = sharedPrefs.getString(chavePessoa + "_nome", "");
         String nota1 = sharedPrefs.getString(chavePessoa + "_nota1", "");
         String nota2 = sharedPrefs.getString(chavePessoa + "_nota2", "");
         String nota3 = sharedPrefs.getString(chavePessoa + "_nota3", "");
 
+        String pessoaInfor = "Nome: " + nome + ", Nota 1: " + nota1 + ", Nota 2: " +nota2 + ", Nota 3: " +nota3;
+
+        notassalvas.add(pessoaInfor);
+        }
+
 
         Intent telaResultado = new Intent(getApplicationContext(), Resultado.class);
-        telaResultado.putExtra("Nome", nome);
-        telaResultado.putExtra("Nota 1", nota1);
-        telaResultado.putExtra("Nota 2", nota2);
-        telaResultado.putExtra("Nota 3", nota3);
+        telaResultado.putStringArrayListExtra("estudantes",(ArrayList<String>) notassalvas);
         startActivity(telaResultado);
-
-
-        // Incrementar o contador para carregar a próxima pessoa na próxima vez
-        contadorPessoas++;
-
 
         // Exibe uma mensagem de sucesso
         Toast.makeText(this, "Dados carregados com sucesso", Toast.LENGTH_SHORT).show();
